@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7ecb9b2b216fa43adf148cc9a81490, type: 3}
+  m_Name: CaptureModels
+  m_EditorClassIdentifier: Assembly-CSharp::CaptureModels
+  entries:
+  - name: Early
+    model: {fileID: 5022602860645237092, guid: 84699e32f8a5b5c4a9fdf83c87d17727, type: 3}
+    stackedVectors: 1
+  - name: Mid
+    model: {fileID: 5022602860645237092, guid: c14f3bd2d886cf248bdd7e57311017b2, type: 3}
+    stackedVectors: 1
+  - name: OnDevice
+    model: {fileID: 5022602860645237092, guid: 3636bf8cd24e96d47a223b242d67542b, type: 3}
+    stackedVectors: 1
+  - name: RentedGpu
+    model: {fileID: 5022602860645237092, guid: 46506f867e842294da8108cafce9a920, type: 3}
+    stackedVectors: 3

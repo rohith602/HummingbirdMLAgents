@@ -1,0 +1,380 @@
+{
+    "Hummingbird": {
+        "checkpoints": [
+            {
+                "steps": 40499872,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-40499872.onnx",
+                "reward": null,
+                "creation_time": 1788276552.6134484,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-40499872.pt"
+                ]
+            },
+            {
+                "steps": 40749920,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-40749920.onnx",
+                "reward": 91.83438779573355,
+                "creation_time": 1788276649.5805535,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-40749920.pt"
+                ]
+            },
+            {
+                "steps": 40999904,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-40999904.onnx",
+                "reward": null,
+                "creation_time": 1788276747.860796,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-40999904.pt"
+                ]
+            },
+            {
+                "steps": 41249888,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-41249888.onnx",
+                "reward": null,
+                "creation_time": 1788276845.7617743,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-41249888.pt"
+                ]
+            },
+            {
+                "steps": 41499872,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-41499872.onnx",
+                "reward": null,
+                "creation_time": 1788276939.0059993,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-41499872.pt"
+                ]
+            },
+            {
+                "steps": 41749984,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-41749984.onnx",
+                "reward": 92.77901683854205,
+                "creation_time": 1788277036.6558335,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-41749984.pt"
+                ]
+            },
+            {
+                "steps": 41999968,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-41999968.onnx",
+                "reward": null,
+                "creation_time": 1788277133.1516485,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-41999968.pt"
+                ]
+            },
+            {
+                "steps": 42249952,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-42249952.onnx",
+                "reward": null,
+                "creation_time": 1788277228.3988862,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-42249952.pt"
+                ]
+            },
+            {
+                "steps": 42499936,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-42499936.onnx",
+                "reward": null,
+                "creation_time": 1788277324.8241231,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-42499936.pt"
+                ]
+            },
+            {
+                "steps": 42749984,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-42749984.onnx",
+                "reward": null,
+                "creation_time": 1788277422.23114,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-42749984.pt"
+                ]
+            },
+            {
+                "steps": 42999904,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-42999904.onnx",
+                "reward": null,
+                "creation_time": 1788277520.5734484,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-42999904.pt"
+                ]
+            },
+            {
+                "steps": 43249888,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-43249888.onnx",
+                "reward": null,
+                "creation_time": 1788277619.682364,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-43249888.pt"
+                ]
+            },
+            {
+                "steps": 43499968,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-43499968.onnx",
+                "reward": 94.57095977238247,
+                "creation_time": 1788277715.2237163,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-43499968.pt"
+                ]
+            },
+            {
+                "steps": 43749888,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-43749888.onnx",
+                "reward": 92.87636727946145,
+                "creation_time": 1788277811.0976758,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-43749888.pt"
+                ]
+            },
+            {
+                "steps": 43999872,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-43999872.onnx",
+                "reward": null,
+                "creation_time": 1788277906.4108427,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-43999872.pt"
+                ]
+            },
+            {
+                "steps": 44249952,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-44249952.onnx",
+                "reward": null,
+                "creation_time": 1788278003.5894146,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-44249952.pt"
+                ]
+            },
+            {
+                "steps": 44499936,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-44499936.onnx",
+                "reward": 94.54482956907965,
+                "creation_time": 1788278094.5250087,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-44499936.pt"
+                ]
+            },
+            {
+                "steps": 44749984,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-44749984.onnx",
+                "reward": 93.92964122178299,
+                "creation_time": 1788278190.992697,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-44749984.pt"
+                ]
+            },
+            {
+                "steps": 44999936,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-44999936.onnx",
+                "reward": 93.13924128881523,
+                "creation_time": 1788278287.7210758,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-44999936.pt"
+                ]
+            },
+            {
+                "steps": 45249920,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-45249920.onnx",
+                "reward": null,
+                "creation_time": 1788278384.0921988,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-45249920.pt"
+                ]
+            },
+            {
+                "steps": 45499968,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-45499968.onnx",
+                "reward": 94.2590665774686,
+                "creation_time": 1788278481.3093877,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-45499968.pt"
+                ]
+            },
+            {
+                "steps": 45749952,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-45749952.onnx",
+                "reward": 95.95763983045306,
+                "creation_time": 1788278577.513906,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-45749952.pt"
+                ]
+            },
+            {
+                "steps": 45999872,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-45999872.onnx",
+                "reward": 95.60759829623359,
+                "creation_time": 1788278673.684657,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-45999872.pt"
+                ]
+            },
+            {
+                "steps": 46249984,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-46249984.onnx",
+                "reward": null,
+                "creation_time": 1788278770.7101123,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-46249984.pt"
+                ]
+            },
+            {
+                "steps": 46499936,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-46499936.onnx",
+                "reward": null,
+                "creation_time": 1788278867.868025,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-46499936.pt"
+                ]
+            },
+            {
+                "steps": 46749920,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-46749920.onnx",
+                "reward": null,
+                "creation_time": 1788278964.3466494,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-46749920.pt"
+                ]
+            },
+            {
+                "steps": 46999968,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-46999968.onnx",
+                "reward": 94.31541129627398,
+                "creation_time": 1788279060.596404,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-46999968.pt"
+                ]
+            },
+            {
+                "steps": 47249888,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-47249888.onnx",
+                "reward": null,
+                "creation_time": 1788279158.7200983,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-47249888.pt"
+                ]
+            },
+            {
+                "steps": 47499872,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-47499872.onnx",
+                "reward": null,
+                "creation_time": 1788279256.110608,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-47499872.pt"
+                ]
+            },
+            {
+                "steps": 47749984,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-47749984.onnx",
+                "reward": null,
+                "creation_time": 1788279354.9203458,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-47749984.pt"
+                ]
+            },
+            {
+                "steps": 47999936,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-47999936.onnx",
+                "reward": 95.03434150869197,
+                "creation_time": 1788279446.1490986,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-47999936.pt"
+                ]
+            },
+            {
+                "steps": 48249912,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-48249912.onnx",
+                "reward": 95.33390848389988,
+                "creation_time": 1788279543.6739323,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-48249912.pt"
+                ]
+            },
+            {
+                "steps": 48499936,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-48499936.onnx",
+                "reward": 95.44438534123557,
+                "creation_time": 1788279641.4644327,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-48499936.pt"
+                ]
+            },
+            {
+                "steps": 48749920,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-48749920.onnx",
+                "reward": null,
+                "creation_time": 1788279738.2110915,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-48749920.pt"
+                ]
+            },
+            {
+                "steps": 48999968,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-48999968.onnx",
+                "reward": 94.13367597705552,
+                "creation_time": 1788279835.2208877,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-48999968.pt"
+                ]
+            },
+            {
+                "steps": 49249920,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-49249920.onnx",
+                "reward": 96.30335600035531,
+                "creation_time": 1788279931.711815,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-49249920.pt"
+                ]
+            },
+            {
+                "steps": 49499904,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-49499904.onnx",
+                "reward": null,
+                "creation_time": 1788280029.5644724,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-49499904.pt"
+                ]
+            },
+            {
+                "steps": 49749984,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-49749984.onnx",
+                "reward": 97.56558286292213,
+                "creation_time": 1788280125.6062849,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-49749984.pt"
+                ]
+            },
+            {
+                "steps": 49999904,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-49999904.onnx",
+                "reward": 96.34534013643861,
+                "creation_time": 1788280222.0977843,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-49999904.pt"
+                ]
+            },
+            {
+                "steps": 50002848,
+                "file_path": "/home/Training/results/HB_16/Hummingbird/Hummingbird-50002848.onnx",
+                "reward": 96.34534013643861,
+                "creation_time": 1788280222.2710433,
+                "auxillary_file_paths": [
+                    "/home/Training/results/HB_16/Hummingbird/Hummingbird-50002848.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 50002848,
+            "file_path": "/home/Training/results/HB_16/Hummingbird.onnx",
+            "reward": 96.34534013643861,
+            "creation_time": 1788280222.2710433,
+            "auxillary_file_paths": [
+                "/home/Training/results/HB_16/Hummingbird/Hummingbird-50002848.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

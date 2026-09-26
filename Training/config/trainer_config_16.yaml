@@ -1,0 +1,148 @@
+# =============================================================================
+#  Hummingbird PPO  --  multi-island parallel training run  (run id: HB_16)
+#
+#  The island count is NOT set here. It is a launch flag read by IslandSpawner.cs
+#  (`ISLANDS=28 ./train_16.sh`), so the count can be swept without rebuilding.
+#  Target box: Jarvis Labs L4, 28 vCPU / 124GB RAM, Rs 41.31/hr.
+#
+#  Baseline to beat:  run HB_01  =  1 island, 5,000,000 steps, mean reward 41.29
+#  (from Training/config/results/HB_01/run_logs/training_status.json)
+#
+#  WHY HB_01 STOPPED AT 41 -- read this before changing anything:
+#  Its own checkpoint history was still climbing when the run ended:
+#      4.00M -> 29.2 | 4.25M -> 38.2 | 4.50M -> 34.0 | 5.00M -> 41.1 | 5.00M -> 41.3
+#  It did not plateau. It ran out of `max_steps`, and because the learning rate
+#  schedule is linear, the learning rate had already decayed to ~0 by then, so the
+#  last stretch was barely learning at all. The single biggest win available is
+#  simply *more steps*, which is exactly what parallel islands buy us.
+#
+#  SECOND CHANGE, MADE 2026-08-31 IN THE UNITY PROJECT (not in this file):
+#  Hummingbird.prefab -> Behavior Parameters -> Stacked Vectors 1 -> 3.
+#  HB_01's agent could not observe its own velocity (10 observations, none of them
+#  linear or angular velocity) while being driven by AddForce on a damped Rigidbody
+#  -- i.e. proportional control of a second-order system, which can only overshoot
+#  and oscillate around each flower. Stacking 3 frames lets the network difference
+#  them into a velocity. This changes the network input from 10 to 30, so this run
+#  CANNOT warm-start from HB_01 via --initialize-from; it trains from scratch.
+#
+#  WHAT IS DELIBERATELY *NOT* CHANGED (so the reward number stays honest):
+#    - the reward function in HummingbirdAgent.cs
+#      (+0.01 plus up to +0.02 alignment bonus per physics step of drinking,
+#       -0.5 for hitting the boundary)
+#    - Agent MaxStep = 5000  -> an episode is 5000 physics steps = 100 s of sim time
+#    - Decision Period = 5, moveForce = 2, Rigidbody mass 1 / linear damping 2
+#  Touching any of those inflates "mean reward" without the bird flying any better,
+#  and makes the new number incomparable to 41.29. Don't.
+#
+#  Theoretical ceiling on this task, for reference:
+#    5000 physics steps x 0.03 reward/step = 150 if the bird could drink nonstop
+#    with perfect beak alignment. Allowing for flying between flowers at its ~1 m/s
+#    top speed, a realistic very-good score is roughly 90-110. So 41 is about 40%
+#    of what is actually reachable -- there is a lot of room.
+# =============================================================================
+
+behaviors:
+  Hummingbird:
+    trainer_type: ppo
+
+    hyperparameters:
+      # 16 agents fill the buffer instead of 1, so each update can afford to be
+      # bigger and less noisy. Ratio buffer:batch stays at 10:1, as before.
+      batch_size: 4096 # HB_01: 2048
+      buffer_size: 40960 # HB_01: 20480
+
+      learning_rate: 3.0e-4
+      learning_rate_schedule: linear # decays to 0 at max_steps -- see note below
+
+      # beta = entropy bonus = "how much random exploration".
+      # Annealing it means the policy is free to explore early and gets to commit to
+      # precise, low-jitter hovering late, which is exactly what this task needs.
+      # (linear is already the ML-Agents default for these two; stated explicitly
+      #  here so the report can quote the actual schedule.)
+      beta: 5.0e-3
+      beta_schedule: linear
+      epsilon: 0.2
+      epsilon_schedule: linear
+
+      lambd: 0.95
+      num_epoch: 3
+
+    network_settings:
+      # HB_01 had this off. Turn it on: of the 10 observations, nine are already
+      # in the -1..1 range (a quaternion, a unit vector, two dot products) but
+      # `toFlower.magnitude / 20` is not -- in practice it sits around 0.01-0.1,
+      # so its gradient signal is ~50x weaker than everything else. Normalising
+      # puts them all on equal footing.
+      normalize: true # HB_01: false
+      hidden_units: 256
+      num_layers: 2
+      vis_encode_type: simple
+
+    reward_signals:
+      extrinsic:
+        strength: 1.0
+        gamma: 0.99 # ~10 s of sim lookahead: enough to plan 2-3 flowers ahead
+
+    # IMPORTANT: pick this number BEFORE starting the real run and do not change it
+    # mid-run. The learning rate ramps linearly down to zero across exactly this
+    # many steps, so stopping early leaves the policy under-annealed (still jittery),
+    # and setting it far too high means the learning rate never gets low enough to
+    # fine-tune. Run the smoke test first (`./train_16.sh smoke`), read the measured
+    # steps/sec, and set this to whatever your rental budget actually covers.
+    #   30,000,000 steps at ~3040 steps/s  ~= 2.7 h  ~= Rs. 117 on the L4
+    #   50,000,000 steps at ~3040 steps/s  ~= 4.6 h  ~= Rs. 197
+    # (L4 all-in = Rs. 42.61/hr: Rs. 41.31 compute + Rs. 1.30 for 100GB storage.
+    #  ~3040 steps/s is the MEASURED rate from the 2026-08-31 sweep at the
+    #  fastest layout, ISLANDS=28 NUM_ENVS=4 -- see project memory / ARCHITECTURE.md.)
+    max_steps: 50000000 # HB_01: 5000000
+
+    time_horizon: 128
+    summary_freq: 50000 # ~50 finished episodes per printed line = a smooth curve
+
+    # A rented box can die or be interrupted. Checkpoint often enough that losing
+    # one is cheap. At the measured ~3040 steps/s this is a checkpoint roughly
+    # every 82 seconds, and 40 kept covers the last ~55 minutes of history.
+    checkpoint_interval: 250000
+    keep_checkpoints: 40
+
+    # false = strict on-policy PPO (same as HB_01). Setting it true overlaps the
+    # gradient update with environment stepping -- maybe 20% faster wall-clock, but
+    # it slightly breaks PPO's on-policy assumption. We are optimising for the
+    # highest final reward, not the fastest run, so leave it off.
+    threaded: false
+
+env_settings:
+  # Number of separate Unity *processes*, each running a full grid of islands.
+  # Start at 1. Unity's script/main thread is single-threaded, so on a 28-vCPU box
+  # 2 processes may well be faster than 1 -- measure it during the smoke test rather
+  # than guessing. (Overridden by --num-envs on the command line.)
+  num_envs: 1
+  # Every island is ~3,800 GameObjects and 360 flowers, so a 28-island grid is
+  # ~107,000 objects and ~10,000 flowers to build at startup -- far longer than the
+  # default 60 s. Without this the trainer gives up before Unity finishes loading.
+  # Raise it further if a bigger island count ever times out during the sweep.
+  timeout_wait: 600
+
+engine_settings:
+  time_scale: 20
+  # MUST be false. Measured on the L4 box 2026-08-31: this build segfaults
+  # (SIGSEGV in PlayerMain, immediately after the scene loads) whenever it runs with
+  # -nographics, because Unity 6's Null graphics device cannot serve this URP
+  # project. Under a real display it runs fine. train_16.sh therefore starts a tiny
+  # Xvfb virtual display and leaves graphics enabled; setting this back to true
+  # reintroduces the crash.
+  no_graphics: false # headless server, nothing to draw to
+
+# torch_settings is deliberately NOT set here.
+#
+# It used to say `device: cuda`, which silently fought with train_16.sh's own
+# --torch-device flag: running DEVICE=cpu produced
+#     RuntimeError: Expected all tensors to be on the same device,
+#     but found at least two devices, cuda:0 and cpu!
+# because part of the model followed the config and part followed the flag.
+# Measured on the L4 box 2026-08-31. Leaving this section out makes
+# --torch-device the single source of truth, so DEVICE=cpu / DEVICE=cuda both work.
+#
+# Context for which to pick: HB_01's timers showed 95.5% of wall clock inside Unity
+# (env_step) against 3.5% on gradients, and this network is a small
+# 30 -> 256 -> 256 -> 5 MLP, so the GPU is not doing much of the work either way.

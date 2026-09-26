@@ -1,0 +1,14 @@
+* text=auto
+*.unity merge=unityyamlmerge
+*.prefab merge=unityyamlmerge
+*.png binary
+*.jpg binary
+*.fbx binary
+*.ogg binary
+*.onnx binary
+*.mp4 binary
+*.pptx binary
+*.docx binary
+*.pdf binary
+*.ttf binary
+*.otf binary
