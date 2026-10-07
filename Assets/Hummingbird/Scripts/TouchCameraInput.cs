@@ -16,8 +16,9 @@ using UnityEngine.EventSystems;
 /// screen between them, so a drag on the left half moves only the left bird's view.
 ///
 /// Uses the legacy Input class, which is available because the project's activeInputHandler is 2
-/// ("Both"). The mouse path is Editor-only on purpose: on Android Input.mousePosition is also fed
-/// by touches, so shipping both would process every gesture twice.
+/// ("Both"). The mouse path is compiled for the Editor and the browser build only: on Android
+/// Input.mousePosition is also fed by touches, so shipping both there would process every gesture
+/// twice. In a phone browser the touch branch in Update() wins for as long as a finger is down.
 /// </summary>
 public class TouchCameraInput : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class TouchCameraInput : MonoBehaviour
     private void Update()
     {
         if (Input.touchCount > 0) HandleTouch();
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_WEBGL
         else HandleMouse();
 #endif
     }
@@ -108,7 +109,7 @@ public class TouchCameraInput : MonoBehaviour
         lastPinchDistance = distance;
     }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_WEBGL
     private void HandleMouse()
     {
         lastPinchDistance = 0f;

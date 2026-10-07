@@ -3,7 +3,12 @@
 A reinforcement learning agent, trained with PPO in Unity ML-Agents, that learns to fly around a floating
 island and feed on flower nectar with no scripted behaviour. It was trained twice: once on a laptop CPU and
 once on a rented NVIDIA L4 cloud instance with 112 arenas in parallel. The final model runs entirely inside
-Unity, in the Editor or on an Android phone, with no Python connection.
+Unity, in the Editor, on an Android phone or in a web browser, with no Python connection.
+
+**Try it in your browser: [rohith602.github.io/HummingbirdMLAgents](https://rohith602.github.io/HummingbirdMLAgents/)**
+(tested in desktop Chrome, about 27 MB to load, nothing to install). Press START, then use the buttons to
+switch between the two trained models, show what the agent senses (Debug), or race both models side by side
+(Split). Drag with the mouse to orbit the camera.
 
 MCA (Generative AI) mini project, Department of Computer Applications, SRM Institute of Science and Technology.
 
@@ -51,7 +56,7 @@ docs/                      report (PDF and Word), presentation, videos, figures
 Scenes in `Assets/Hummingbird/Scenes`:
 - `Training.unity`: the training arena (used by `mlagents-learn` and the Linux server build)
 - `Flower Island.unity`: the minigame, where you race the trained bird
-- `Demo.unity`: the phone demo with buttons to switch models, show the agent's rays, draw flight trails and
+- `Demo.unity`: the phone and browser demo with buttons to switch models, show the agent's rays, draw flight trails and
   race both models side by side
 
 ## Running it
